@@ -20,37 +20,38 @@ const initialTasks = [
   },
 ];
 
+function getTask(id) {
+  let task = {};
+  task.id = initialTasks.length + 1;
+  task.title = prompt("Enter task 1 title");
+  task.description = prompt("Enter task 1 description");
+  task.status = prompt("Enter task 1 status").toLowerCase();
+  const invalidStatusMessage =
+    "Invalid status. Please enter: todo, doing, or done.";
+
+  // Keep prompting the user until a valid status ("todo", "doing", or "done") is entered
+  while (
+    task.status !== "done" &&
+    task.status !== "doing" &&
+    task.status !== "todo"
+  ) {
+    alert(invalidStatusMessage);
+    task.status = prompt("Enter task 1 status").toLowerCase();
+  }
+  initialTasks.push(task);
+}
+
+for (let i = 3; i < 6; i++) {
+  getTask();
+}
+
+for (let j = 0; j < initialTasks.length; j++) {
+  console.log(initialTasks[j]);
+}
+
+/** 
+
 // Prompt for Task 1
-let taskTitle1 = prompt("Enter task 1 title");
-let taskDescription1 = prompt("Enter task 1 description");
-let taskStatus1 = prompt("Enter task 1 status").toLowerCase();
-const invalidStatusMessage =
-  "Invalid status. Please enter: todo, doing, or done.";
-
-// Keep prompting the user until a valid status ("todo", "doing", or "done") is entered
-while (
-  taskStatus1 !== "done" &&
-  taskStatus1 !== "doing" &&
-  taskStatus1 !== "todo"
-) {
-  alert(invalidStatusMessage);
-  taskStatus1 = prompt("Enter task 1 status").toLowerCase();
-}
-
-// Prompt for Task 2
-let taskTitle2 = prompt("Enter task 2 title");
-let taskDescription2 = prompt("Enter task 2 description");
-let taskStatus2 = prompt("Enter task 2 status").toLowerCase();
-
-// Keep prompting the user until a valid status ("todo", "doing", or "done") is entered
-while (
-  taskStatus2 !== "done" &&
-  taskStatus2 !== "doing" &&
-  taskStatus2 !== "todo"
-) {
-  alert(invalidStatusMessage);
-  taskStatus2 = prompt("Enter task 2 status").toLowerCase();
-}
 
 // If a task is marked as "done", log its title and status
 if (taskStatus1 === "done") {
@@ -64,3 +65,4 @@ if (taskStatus2 === "done") {
 if (taskStatus1 !== "done" && taskStatus2 !== "done") {
   console.log("No tasks completed, let's get to work!");
 }
+*/
