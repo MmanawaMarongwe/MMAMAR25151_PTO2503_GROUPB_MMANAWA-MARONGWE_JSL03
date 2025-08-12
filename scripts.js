@@ -23,7 +23,7 @@ const initialTasks = [
 //initiate a maximum length to use for the tasks object array
 let maxTasks = 6;
 
-function getTask(id) {
+function getTask() {
   let task = {};
   task.id = initialTasks.length + 1;
   task.title = prompt("Enter task 1 title");
@@ -59,6 +59,7 @@ for (let j = 0; j < initialTasks.length; j++) {
   console.log(initialTasks[j]);
 }
 
-let completeTask = initialTasks.filter((task) => task.status === "done");
+// Create a new array for the tasks with a status of "done"
+let completeTasks = initialTasks.filter((task) => task.status === "done");
 
-console.log(completeTask);
+console.log(completeTasks);
