@@ -20,11 +20,12 @@ const initialTasks = [
   },
 ];
 
-//initiate a maximum length to use for the tasks object array
-let maxTasks = 6;
+// Maximum number of tasks set to current tasks plus three more
+let maxTasks = initialTasks.length + 3;
 
 function getTask() {
   let task = {};
+  // Assigns a new ID based on the current length of the tasks array
   task.id = initialTasks.length + 1;
   task.title = prompt("Enter task 1 title");
   task.description = prompt("Enter task 1 description");
@@ -41,13 +42,14 @@ function getTask() {
     alert(invalidStatusMessage);
     task.status = prompt("Enter task 1 status").toLowerCase();
   }
+  //adds the new task to the initial tasks array
   initialTasks.push(task);
 }
 
-// use a for loop to add the user input in the object array. Let i start at the current array length so it doesn't override what is stored in the array
+// Adds new tasks until reaching the max limit
 for (let i = initialTasks.length; i < maxTasks; i++) {
   getTask();
-  // checks if the user has reached maximum tasks needed by checking if the array length is equal to the maximum tasks needed
+  // Alerts the user exactly when the max limit is reached
   if (initialTasks.length === maxTasks) {
     alert(
       "There are enough tasks on your board, please check them in the console"
@@ -55,11 +57,9 @@ for (let i = initialTasks.length; i < maxTasks; i++) {
   }
 }
 
-for (let j = 0; j < initialTasks.length; j++) {
-  console.log(initialTasks[j]);
-}
+console.log("All tasks:", initialTasks);
 
-// Create a new array for the tasks with a status of "done"
+// Creates a new array containing only tasks with status "done"
 let completeTasks = initialTasks.filter((task) => task.status === "done");
 
-console.log(completeTasks);
+console.log("Complete tasks:", completeTasks);
