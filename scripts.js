@@ -20,6 +20,9 @@ const initialTasks = [
   },
 ];
 
+//initiate a maximum length to use for the tasks object array
+let maxTasks = 6;
+
 function getTask(id) {
   let task = {};
   task.id = initialTasks.length + 1;
@@ -41,28 +44,21 @@ function getTask(id) {
   initialTasks.push(task);
 }
 
-for (let i = 3; i < 6; i++) {
+// use a for loop to add the user input in the object array. Let i start at the current array length so it doesn't override what is stored in the array
+for (let i = initialTasks.length; i < maxTasks; i++) {
   getTask();
+  // checks if the user has reached maximum tasks needed by checking if the array length is equal to the maximum tasks needed
+  if (initialTasks.length === maxTasks) {
+    alert(
+      "There are enough tasks on your board, please check them in the console"
+    );
+  }
 }
 
 for (let j = 0; j < initialTasks.length; j++) {
   console.log(initialTasks[j]);
 }
 
-/** 
+let completeTask = initialTasks.filter((task) => task.status === "done");
 
-// Prompt for Task 1
-
-// If a task is marked as "done", log its title and status
-if (taskStatus1 === "done") {
-  console.log(`Title: "${taskTitle1}", status: "${taskStatus1}"`);
-}
-// If a task is marked as "done", log its title and status
-if (taskStatus2 === "done") {
-  console.log(`Title: "${taskTitle2}", status: "${taskStatus2}"`);
-}
-// If neither task is marked as "done", display a motivational message
-if (taskStatus1 !== "done" && taskStatus2 !== "done") {
-  console.log("No tasks completed, let's get to work!");
-}
-*/
+console.log(completeTask);
