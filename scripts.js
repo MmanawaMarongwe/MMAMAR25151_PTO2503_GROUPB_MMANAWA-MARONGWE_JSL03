@@ -20,13 +20,26 @@ const initialTasks = [
   },
 ];
 
+// Get id of last id and add 1 to it for a more robust code for future foolproof
+function getNextId() {
+  //get the last object in the array
+  lastObject = initialTasks[initialTasks.length - 1];
+  //Extract the id of the last object
+  lastId = lastObject.id;
+  //Set the next id to last object id + 1
+  nextId = lastId + 1;
+
+  //return the next id so it can be used for the next object
+  return nextId;
+}
+
 // Maximum number of tasks set to current tasks plus three more
 let maxTasks = initialTasks.length + 3;
 
 function getTask() {
   let task = {};
-  // Assigns a new ID based on the current length of the tasks array
-  task.id = initialTasks.length + 1;
+  // Assigns a new ID based on the current length of the tasks array using the getTaskId function.
+  task.id = getNextId();
   task.title = prompt("Enter task 1 title");
   task.description = prompt("Enter task 1 description");
   task.status = prompt("Enter task 1 status").toLowerCase();
