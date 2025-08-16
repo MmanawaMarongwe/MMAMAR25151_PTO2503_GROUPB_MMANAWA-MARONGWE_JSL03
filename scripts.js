@@ -20,13 +20,11 @@ const initialTasks = [
   },
 ];
 
-// Get id of last id and add 1 to it for a more robust code for future foolproof
+// Get id of last object and add 1 to it to make the id immutable
 function getNextId() {
-  //get the last object in the array
+  //get the last object in the array and use it to get the next id
   const lastObject = initialTasks[initialTasks.length - 1];
-  //Extract the id of the last object
   const lastId = lastObject.id;
-  //Set the next id to last object id + 1
   const nextId = lastId + 1;
 
   //return the next id so it can be used for the next object
