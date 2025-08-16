@@ -23,11 +23,11 @@ const initialTasks = [
 // Get id of last id and add 1 to it for a more robust code for future foolproof
 function getNextId() {
   //get the last object in the array
-  lastObject = initialTasks[initialTasks.length - 1];
+  const lastObject = initialTasks[initialTasks.length - 1];
   //Extract the id of the last object
-  lastId = lastObject.id;
+  const lastId = lastObject.id;
   //Set the next id to last object id + 1
-  nextId = lastId + 1;
+  const nextId = lastId + 1;
 
   //return the next id so it can be used for the next object
   return nextId;
